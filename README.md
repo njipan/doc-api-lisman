@@ -1,8 +1,8 @@
-# Listening Manager
+# Listening Manager API Documentation
 
 Documentation for Listening Manager Backend with Node JS.
 
-## API Documentation
+## Audios
 
 | HTTP   | URI              | Description                       |
 | ------ | ---------------- | --------------------------------- |
@@ -11,15 +11,8 @@ Documentation for Listening Manager Backend with Node JS.
 | POST   | /audios          | Store new audio                   |
 | PUT    | /audios/{id}     | Update audio specified by id      |
 | DELETE | /audios/{id}     | Delete audio specified by id      |
-| GET    | /categories      | Retrieve all category list        |
-| GET    | /categories/{id} | Retrieve category specified by id |
-| POST   | /categories      | Store new category                |
-| PUT    | /categories/{id} | Update category specified by id   |
-| DELETE | /categories/{id} | Delete category specified by id   |
 
-### Audios
-
-#### Retrieve All Audio
+### Retrieve All Audio
 
 ```shell
 GET /audios
@@ -34,11 +27,33 @@ Response Body :
     "datas": [
         {
             "id": 3,
-            "name": "IBT_VAR_1"
+            "name": "IBT_VAR_1",
+            "path": "public/...",
+            "categories":[
+                {
+            "id": 3,
+            "name": "IBT"
         },
         {
             "id": 2,
-            "name": "TOEFL_VAR_7"
+            "name": "TPKS"
+        }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "TOEFL_VAR_7",
+            "path": "public/...",
+            "categories":[
+                {
+            "id": 3,
+            "name": "IBT"
+        },
+        {
+            "id": 2,
+            "name": "TPKS"
+        }
+            ]
         }
     ],
     "total_page": 5,
@@ -46,13 +61,31 @@ Response Body :
 }
 ```
 
-#### With Specified ID
+### With Specified ID
 
 ```shell
 GET /audios/{id}
 ```
+```shell
+Response Body: 
+{
+            "id": 2,
+            "name": "TOEFL_VAR_7",
+            "path": "public/...",
+            "categories":[
+                {
+            "id": 3,
+            "name": "IBT"
+        },
+        {
+            "id": 2,
+            "name": "TPKS"
+        }
+            ]
+        }
+```
 
-#### Store New Audio
+### Store New Audio
 
 ```shell
 POST /audios
@@ -62,8 +95,11 @@ Request Body :
 - audio_file : file[audio/mpeg,audio/ogg]
 - categories : [] with string -> categories with JSON.stringify() with integer value
 ```
+```shell
+Response Body: OK
+```
 
-#### Update Audio
+### Update Audio
 
 ```shell
 PUT /audios/{id}
@@ -73,30 +109,36 @@ Request Body :
 - audio_file : file[audio/mpeg,audio/ogg]
 - categories : [] with string -> categories with JSON.stringify() with integer value
 ```
+```shell
+Response Body: OK
+```
 
-#### Delete Audio
+### Delete Audio
 
 ```shell
 DELETE /audios/{id}
 ```
+```shell
+Response Body: OK
+```
 
-### Categories
+## Categories
 
-#### Retrieve All Category
+| HTTP   | URI              | Description                       |
+| GET    | /categories      | Retrieve all category list        |
+| GET    | /categories/{id} | Retrieve category specified by id |
+| POST   | /categories      | Store new category                |
+| PUT    | /categories/{id} | Update category specified by id   |
+| DELETE | /categories/{id} | Delete category specified by id   |
+
+### Retrieve All Category
 
 ```shell
 GET /categories
-```
-
-#### With Specified ID
-
-```shell
-GET /categories/{id}
 Optional Params :
     -> page
     -> search
 ```
-
 ```shell
 Response Body :
 {
@@ -115,7 +157,22 @@ Response Body :
 }
 ```
 
-#### Store New Category
+
+### With Specified ID
+
+```shell
+GET /categories/{id}
+```
+
+```shell
+Response Body :
+{
+    "id": 1,
+    "name": "adsfdsaf"
+}
+```
+
+### Store New Category
 
 ```shell
 POST /categories/{id}
@@ -123,8 +180,11 @@ POST /categories/{id}
 Request Body :
 - category_name
 ```
+```shell
+Response Body: OK
+```
 
-#### Update Category
+### Update Category
 
 ```shell
 PUT /categories/{id}
@@ -132,9 +192,15 @@ PUT /categories/{id}
 Request Body :
 - category_name
 ```
+```shell
+Response Body: OK
+```
 
-#### Delete Category
+### Delete Category
 
 ```shell
 DELETE /categories/{id}
+```
+```shell
+Response Body: OK
 ```
