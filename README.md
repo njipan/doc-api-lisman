@@ -31,13 +31,13 @@ Response Body :
             "path": "public/...",
             "categories":[
                 {
-            "id": 3,
-            "name": "IBT"
-        },
-        {
-            "id": 2,
-            "name": "TPKS"
-        }
+                    "id": 3,
+                    "name": "IBT"
+                },
+                {
+                    "id": 2,
+                    "name": "TPKS"
+                }
             ]
         },
         {
@@ -46,13 +46,13 @@ Response Body :
             "path": "public/...",
             "categories":[
                 {
-            "id": 3,
-            "name": "IBT"
-        },
-        {
-            "id": 2,
-            "name": "TPKS"
-        }
+                    "id": 3,
+                    "name": "IBT"
+                },
+                {
+                    "id": 2,
+                    "name": "TPKS"
+                }
             ]
         }
     ],
@@ -74,13 +74,13 @@ Response Body:
             "path": "public/...",
             "categories":[
                 {
-            "id": 3,
-            "name": "IBT"
-        },
-        {
-            "id": 2,
-            "name": "TPKS"
-        }
+                   "id": 3,
+                    "name": "IBT"
+                },
+                {
+                    "id": 2,
+                    "name": "TPKS"
+                }
             ]
         }
 ```
@@ -125,6 +125,7 @@ Response Body: OK
 ## Categories
 
 | HTTP   | URI              | Description                       |
+| ------ | ---------------- | --------------------------------- |
 | GET    | /categories      | Retrieve all category list        |
 | GET    | /categories/{id} | Retrieve category specified by id |
 | POST   | /categories      | Store new category                |
@@ -200,6 +201,90 @@ Response Body: OK
 
 ```shell
 DELETE /categories/{id}
+```
+```shell
+Response Body: OK
+```
+
+## Subjects
+
+| HTTP   | URI              | Description                      |
+| ------ | ---------------- | ---------------------------------|
+| GET    | /subjects        | Retrieve all subject list        |
+| GET    | /subjects/{id}   | Retrieve subject specified by id |
+| POST   | /subjects        | Store new subject                |
+| PUT    | /subjects/{id}   | Update subject specified by id   |
+| DELETE | /subjects/{id}   | Delete subject specified by id   |
+
+### Retrieve All Subject
+
+```shell
+GET /subjects
+Optional Params :
+    -> page
+    -> search
+```
+```shell
+Response Body :
+{
+    "datas": [
+        {
+            "id": 3,
+            "name": "ENGL1122"
+        },
+        {
+            "id": 2,
+            "name": "ENGL1212"
+        }
+    ],
+    "total_page": 2,
+    "current_page": 1
+}
+```
+
+
+### With Specified ID
+
+```shell
+GET /subjects/{id}
+```
+
+```shell
+Response Body :
+{
+    "id": 2,
+    "name": "ENGL1212"
+}
+```
+
+### Store New Subject
+
+```shell
+POST /subjects/{id}
+
+Request Body :
+- subject_name
+```
+```shell
+Response Body: OK
+```
+
+### Update Subject
+
+```shell
+PUT /subjects/{id}
+
+Request Body :
+- subject_name
+```
+```shell
+Response Body: OK
+```
+
+### Delete Subject
+
+```shell
+DELETE /subjects/{id}
 ```
 ```shell
 Response Body: OK
