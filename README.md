@@ -93,7 +93,7 @@ POST /audios
 Request Body :
 - audio_name : string
 - audio_file : file[audio/mpeg,audio/ogg]
-- categories : [] with string -> categories with JSON.stringify() with integer value
+- categories : array with value integer (ex: [2,5,4])
 ```
 ```shell
 Response Body: OK
