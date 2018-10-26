@@ -55,9 +55,7 @@ Response Body :
                 }
             ]
         }
-    ],
-    "total_page": 5,
-    "current_page": 1
+    ]
 }
 ```
 
@@ -152,9 +150,7 @@ Response Body :
             "id": 2,
             "name": "TPKS"
         }
-    ],
-    "total_page": 3,
-    "current_page": 1
+    ]
 }
 ```
 
@@ -236,9 +232,7 @@ Response Body :
             "id": 2,
             "name": "ENGL1212"
         }
-    ],
-    "total_page": 2,
-    "current_page": 1
+    ]
 }
 ```
 
