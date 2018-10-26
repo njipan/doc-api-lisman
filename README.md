@@ -17,7 +17,6 @@ Documentation for Listening Manager Backend with Node JS.
 ```shell
 GET /audios
 Optional Params :
-    -> page
     -> search
 ```
 
@@ -105,7 +104,7 @@ PUT /audios/{id}
 Request Body :
 - audio_name : string
 - audio_file : file[audio/mpeg,audio/ogg]
-- categories : [] with string -> categories with JSON.stringify() with integer value
+- categories : [] array of integer
 ```
 ```shell
 Response Body: OK
@@ -135,7 +134,6 @@ Response Body: OK
 ```shell
 GET /categories
 Optional Params :
-    -> page
     -> search
 ```
 ```shell
@@ -217,7 +215,6 @@ Response Body: OK
 ```shell
 GET /subjects
 Optional Params :
-    -> page
     -> search
 ```
 ```shell
